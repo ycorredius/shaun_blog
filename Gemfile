@@ -11,10 +11,8 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'sqlite3', '~> 1.4'
 gem 'devise'
-
-# Reduces boot times through caching; required in config/boot.rb
+gem 'foreman', '~> 0.87.2'
 gem 'bootsnap', '>= 1.4.4', require: false
-
 # gem 'rack-cors'
 
 group :development, :test do
@@ -28,5 +26,4 @@ group :development do
   gem 'spring'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
