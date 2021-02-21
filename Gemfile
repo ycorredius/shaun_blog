@@ -7,7 +7,6 @@ ruby '2.7.1'
 # gem 'image_processing', '~> 1.2'
 # gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
-gem 'annotate', '~> 3.1', '>= 3.1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'sqlite3', '~> 1.4'
@@ -24,6 +23,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate', '~> 3.1', '>= 3.1.1'
   gem 'listen', '~> 3.3'
   gem 'spring'
 end
