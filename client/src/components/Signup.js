@@ -30,10 +30,10 @@ class Signup extends Component {
                     </div>
                     <div>
                         <label>Password Confirmation</label>
-                        <input type="password" name="password" />
+                        <input type="password" name="password" value={password_confirmation}/>
                     </div>
                     <div>
-                        <input type='sumbit' />
+                        <input type='submit' name="Sign Up"/>
                     </div>
                 </form>
             </div>
