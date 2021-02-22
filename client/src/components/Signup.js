@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import {signup} from './reducers/authActions'
 
 class Signup extends Component {
     constructor(props) {
@@ -7,33 +9,49 @@ class Signup extends Component {
             email: "",
             username: "",
             password: "",
-            password_confirmation: ""
+            password_confirmation: "",
+            signupErros: []
         }
     }
 
+    handleOnChange = (event)=>{
+        const {name,value} = event.target
+        this.setState({
+            [name]:value
+        })
+    }
+
+    handleOnSubmit = (e) =>{
+        e.preventDefault();
+        this.props.signup(this.state)
+            .then(() => {
+                this.props.history.push("/home")
+            })
+
+    }
     render() {
-        const { email, username, password, password_confirmation } = this.state
+        const { email, userName, password, password_confirmation } = this.state
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label>Username</label>
-                        <input type="text" name="userName" value={username} />
+                        <input type="text" name="userName" value={userName} onChange={this.handleOnChange} />
                     </div>
                     <div>
                         <label>Email</label>
-                        <input type="text" name="email" value={email} />
+                        <input type="text" name="email" value={email} onChange={this.handleOnChange} />
                     </div>
                     <div>
                         <label>password</label>
-                        <input type="text" name="password" value={password} />
+                        <input type="password" name="password" value={password} onChange={this.handleOnChange} />
                     </div>
                     <div>
                         <label>Password Confirmation</label>
-                        <input type="password" name="password" value={password_confirmation}/>
+                        <input type="password" name="password_confirmation" value={password_confirmation} onChange={this.handleOnChange} />
                     </div>
                     <div>
-                        <input type='submit' name="Sign Up"/>
+                        <input type='submit' value="Signup"/>
                     </div>
                 </form>
             </div>
@@ -41,4 +59,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default connect(null,{signup})(Signup);

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import {authenticate} from './reducers/authActions'
 
 class Login extends Component {
 
@@ -17,13 +19,16 @@ class Login extends Component {
             [name]: value
         })
     }
-    // handlesubmit = (e) =>{
-    //     e.preventdefault();
-    //     this
-    // }
+    handlesubmit = (e) =>{
+        e.preventdefault();
+        this.props.authenticate(this.state)
+            .then(()=>{
+                this.props.history.push("/home")
+            })
+    }
 
     render() {
-        const { username, email, password } = this.state
+        const { userName,password } = this.state
         return (
             <div>
                 <form>
@@ -31,26 +36,18 @@ class Login extends Component {
                         <label>Username</label>
                         <input type="text"
                             name="userName"
-                            value={username}
+                            value={userName}
                             onChange={this.handleOnChange} />
                     </div>
                     <div>
-                        <label>Email</label>
-                        <input type="text"
-                            name="email"
-                            value={email}
-                            onChange={this.handleOnChange}
-                        />
-                    </div>
-                    <div>
                         <label>Password</label>
-                        <input type="text"
+                        <input type="password"
                             name='password'
                             value={password}
                             onChange={this.handleOnChange} />
                     </div>
                     <div>
-                        <input type="submit" value="login" />
+                        <input type="submit" value="Login" />
                     </div>
                 </form>
             </div>
@@ -58,4 +55,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default connect(null,{authenticate})(Login);
