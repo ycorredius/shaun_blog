@@ -13,7 +13,9 @@ gem 'sqlite3', '~> 1.4'
 gem 'devise'
 gem 'foreman', '~> 0.87.2'
 gem 'bootsnap', '>= 1.4.4', require: false
-# gem 'rack-cors'
+gem 'rack-cors'
+gem 'annotate', '~> 3.1', '>= 3.1.1'
+
 
 group :development, :test do
   gem 'pry-rails'
@@ -21,7 +23,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate', '~> 3.1', '>= 3.1.1'
   gem 'listen', '~> 3.3'
   gem 'spring'
 end

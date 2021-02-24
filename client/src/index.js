@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-import { createStore } from 'redux';
-import authReducer from './components/reducers/authReducer'
+import {createStore,applyMiddleware, compose} from 'redux';
+import authReducer from './components/reducers/authReducer';
+import thunk from 'redux-thunk';
 
-const store = createStore(authReducer)
+const store = createStore(
+	authReducer,
+	compose(applyMiddleware(thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+	)
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

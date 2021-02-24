@@ -33,12 +33,9 @@ const authSessionStatus = (user) => {
 }
 
 export const signup = (user) => {
-    debugger
     return dispatch => {
-        debugger
-        return axios.post(`${API_URL}/users`, { user }, { withCredentials: true })
+        return axios.post(`${API_URL}/users`, { user },{ withCredentials: true })
             .then(({ data }) => {
-                debugger
                 const { email, password } = data.data.attributes
                 return dispatch(
                     authenticate({
