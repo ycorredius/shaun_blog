@@ -7,10 +7,10 @@ class Signup extends Component {
         super(props);
         this.state = {
             email: "",
-            username: "",
+            user_name: "",
             password: "",
             password_confirmation: "",
-            signupErros: []
+            signup_errors: []
         }
     }
 
@@ -30,13 +30,13 @@ class Signup extends Component {
 
     }
     render() {
-        const { email, userName, password, password_confirmation } = this.state
+        const { email, user_name, password, password_confirmation } = this.state
         return (
             <div>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label>Username</label>
-                        <input type="text" name="userName" value={userName} onChange={this.handleOnChange} />
+                        <input type="text" name="user_name" value={user_name} onChange={this.handleOnChange} />
                     </div>
                     <div>
                         <label>Email</label>
