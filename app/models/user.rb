@@ -22,4 +22,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+	def http_authenticate
+      authenticate_or_request_with_http_digest do |user_name, password|
+        user_name == "foo" && password == "bar"
+      end
+      warden.custom_failure! if performed?
+    end
 end
