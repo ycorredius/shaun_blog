@@ -15,6 +15,7 @@ gem 'foreman', '~> 0.87.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors'
 gem 'annotate', '~> 3.1', '>= 3.1.1'
+gem 'fast_jsonapi', '~> 1.5'
 
 
 group :development, :test do

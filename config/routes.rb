@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registration: 'users/registrations'}
+	resource :user, only: [:show]
+	post '/user', to: 'user#create'
 end

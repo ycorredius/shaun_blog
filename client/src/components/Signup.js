@@ -9,7 +9,8 @@ class Signup extends Component {
             user_name: "",
             email: "",
             password: "",
-            password_confirmation: ""
+            password_confirmation: "",
+            signup_errors:[]
         }
     }
 
