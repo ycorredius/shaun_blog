@@ -1,9 +1,10 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 	def create
-		binding.pry
+		
 		@user = User.new(user_params)
 		if @user.valid? && @user.save
 			render json: UserSerializer.new(@user).serialized_json
+			binding.pry
 		else 
 			render json: @user.errors, status: 400
 		end

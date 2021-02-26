@@ -10,11 +10,11 @@ ruby '2.7.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'sqlite3', '~> 1.4'
-gem 'devise'
 gem 'foreman', '~> 0.87.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors'
 gem 'annotate', '~> 3.1', '>= 3.1.1'
+gem 'activerecord-session_store', '~> 1.1', '>= 1.1.3'
 gem 'fast_jsonapi', '~> 1.5'
 
 
