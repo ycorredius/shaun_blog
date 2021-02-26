@@ -8,7 +8,7 @@ class Signup extends Component {
         this.state = {
             user_name: "",
             email: "",
-            password: "",
+            password_digest: "",
             password_confirmation: "",
             signup_errors:[]
         }
@@ -30,7 +30,7 @@ class Signup extends Component {
 
     }
     render() {
-        const { email, user_name, password, password_confirmation } = this.state
+        const { email, user_name, password_digest, password_confirmation } = this.state
         return (
             <div>
                 <form onSubmit={this.handleOnSubmit}>
@@ -43,8 +43,8 @@ class Signup extends Component {
                         <input type="text" name="email" value={email} onChange={this.handleOnChange} />
                     </div>
                     <div>
-                        <label>password</label>
-                        <input type="password" name="password" value={password} onChange={this.handleOnChange} />
+                        <label>Password</label>
+                        <input type="password" name="password_digest" value={password_digest} onChange={this.handleOnChange} />
                     </div>
                     <div>
                         <label>Password Confirmation</label>
